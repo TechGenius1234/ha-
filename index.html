@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blank – Path Prompt</title>
+  <title>Evan's File Base</title>
   <style>
     html, body { height: 100%; margin: 0; background: #fff; }
     dialog { border: none; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.2); width: min(92vw, 520px); }
@@ -22,12 +22,11 @@
       <h3 style="margin:0 0 8px 0;font:700 18px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">Enter the file path within the website</h3>
 
       <div class="row">
-        <label for="pathInput">File Path</label>
+        <label for="pathInput">Please enter the filepath for the file you are wishing to access</label>
         <input id="pathInput" name="path" type="text" placeholder="e.g. /docs/page.html" required />
       </div>
 
       <div class="actions">
-        <button type="button" id="cancelBtn">Cancel</button>
         <button class="primary" id="okBtn">Open</button>
       </div>
     </form>
@@ -36,7 +35,6 @@
   <script>
     const dialog = document.getElementById('promptDialog');
     const okBtn = document.getElementById('okBtn');
-    const cancelBtn = document.getElementById('cancelBtn');
 
     window.addEventListener('DOMContentLoaded', () => {
       if (typeof dialog.showModal === 'function') {
@@ -55,15 +53,6 @@
 
       // Redirect to the entered path within the website
       window.location.href = enteredPath;
-    });
-
-    cancelBtn.addEventListener('click', () => {
-      dialog.close('cancel');
-    });
-
-    dialog.addEventListener('cancel', (e) => {
-      e.preventDefault();
-      dialog.close('cancel');
     });
   </script>
 </body>
