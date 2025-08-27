@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Folder Viewer</title>
+</head>
+<body>
+  <h2>Select a folder</h2>
+  <input type="file" id="folderPicker" webkitdirectory directory multiple>
+  <ul id="fileList"></ul>
+
+  <script>
+    const folderPicker = document.getElementById('folderPicker');
+    const fileList = document.getElementById('fileList');
+
+    folderPicker.addEventListener('change', () => {
+      fileList.innerHTML = '';
+      for (const file of folderPicker.files) {
+        const li = document.createElement('li');
+        li.textContent = file.webkitRelativePath;
+        fileList.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
